@@ -7,14 +7,15 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const email = useRef(null);
@@ -38,9 +39,8 @@ const Login = () => {
 
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcPczF9OkeSbIdvP0AiM0Zs_aHZbQaXEs2iRGKuZjq15z3W6EN5wNuq7giecR1AMkP6ytmh1cW5ePbMSSdtM7lcng0MBFIVZaD0_cqVg&s=10",
-          })
+            photoURL: USER_AVATAR,
+          }) 
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
               dispatch(
@@ -51,7 +51,6 @@ const Login = () => {
                   photoURL: photoURL,
                 }),
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -71,8 +70,6 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;

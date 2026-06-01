@@ -1,0 +1,14 @@
+export const LOGO =
+  "https://help.nflxext.com/helpcenter/OneTrust/oneTrust_production_2026-05-14/consent/87b6a5c0-0104-4e96-a291-092c11350111/019ae4b5-d8fb-7693-90ba-7a61d24a8837/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png";
+
+export const USER_AVATAR =
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcPczF9OkeSbIdvP0AiM0Zs_aHZbQaXEs2iRGKuZjq15z3W6EN5wNuq7giecR1AMkP6ytmh1cW5ePbMSSdtM7lcng0MBFIVZaD0_cqVg&s=10";
+
+export const API_OPTIONS = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OTQzM2I0YWM3YzBhODk0MWIyNGI5YWRmZjU3MWM2NyIsIm5iZiI6MTc4MDMwNjA2OC4zMzMsInN1YiI6IjZhMWQ1MDk0N2Q1NTgwOGIzZDM1OTVmMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.86VDsf3f2E9de25xVYbwyJYsY-AcNNV9hYB93tszxaQ",
+  },
+};
