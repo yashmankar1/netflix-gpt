@@ -10,7 +10,7 @@ import { auth } from "../utils/firebase";
 
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import { USER_AVATAR } from "../utils/constants";
+import { BG_URL, USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -40,7 +40,7 @@ const Login = () => {
           updateProfile(user, {
             displayName: name.current.value,
             photoURL: USER_AVATAR,
-          }) 
+          })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
               dispatch(
@@ -88,10 +88,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/435e8bb8-7f1b-49cb-8da8-bff997124294/web/IN-en-20260511-TRIFECTA-perspective_ec39852e-0b48-4e8a-b415-dd8376cd83ce_large.jpg"
-          alt="background-img"
-        />
+        <img src={BG_URL} />
       </div>
 
       <form
