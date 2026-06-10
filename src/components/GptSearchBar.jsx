@@ -1,8 +1,11 @@
 import { useRef } from "react";
 import genAI from "../utils/gemini";
 import { API_OPTIONS } from "../utils/constants";
+import { addGptMovieResult } from "../utils/gptSlice";
+import { useDispatch } from "react-redux";
 
 const GptSearchBar = () => {
+  const dispatch = useDispatch();
   const searchText = useRef(null);
 
   const searchMovieTMDB = async (movie) => {
@@ -45,6 +48,13 @@ const GptSearchBar = () => {
 
       const tmdbResults = await Promise.all(promiseResults);
       console.log(tmdbResults);
+
+      dispatch(
+        addGptMovieResult({
+          movieNames: geminiMovies,
+          movieResults: tmdbResults,
+        }),
+      );
     } catch (error) {
       console.error(error);
     }
